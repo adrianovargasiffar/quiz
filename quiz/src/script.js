@@ -1,62 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Banco de Dados - Times</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f5f5f5; text-align: center; padding: 2rem; }
-        .quiz-container { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 600px; margin: auto; position: relative; }
-        .question { font-size: 1.2rem; margin-bottom: 1rem; }
-        .option { display: block; background: #eee; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; cursor: pointer; }
-        .option:hover { background: #ddd; }
-        .correct { background-color: #c8e6c9 !important; }
-        .wrong { background-color: #ffcdd2 !important; }
-        .hidden { display: none; }
-        .scoreboard { margin-top: 1rem; font-size: 1rem; }
-        .team-entry { margin-bottom: 2rem; }
-        .timer { font-size: 1.2rem; margin-top: 1rem; color: #ff5252; }
-        .progress-container { display: flex; justify-content: space-between; margin-top: 1rem; }
-        .progress-bar { width: 45%; background: #eee; border-radius: 10px; overflow: hidden; height: 20px; }
-        .progress-fill { height: 100%; background: #4caf50; width: 0%; transition: width 0.5s ease; }
-    </style>
-</head>
-<body>
+// Este arquivo contém a lógica do jogo. Ele define funções para iniciar o jogo, carregar perguntas, verificar respostas, atualizar placares e gerenciar o temporizador. As variáveis de estado, como pontuação e turno da equipe, também são gerenciadas aqui.
 
-<div class="quiz-container">
-    <div id="team-entry" class="team-entry">
-        <h2>Quiz Interativo - Banco de dados</h2>
-        <h2>Modelagem de Dados</h2>
-        <h2>Escolha os Nomes dos Grupos</h2>
-        <input type="text" id="groupAName" placeholder="Nome do Time A"><br><br>
-        <input type="text" id="groupBName" placeholder="Nome do Time B"><br><br>
-        <button onclick="startGame()">Iniciar Jogo</button>
-    </div>
-
-    <div id="game" class="hidden">
-        <h2 id="team-turn">Time A começa!</h2>
-        <div id="question" class="question">Carregando...</div>
-        <div id="options"></div>
-        <button id="nextBtn" class="hidden">Próxima</button>
-        <div class="scoreboard">
-            <p>Placar - <span id="nameA">Time A</span>: <span id="scoreA">0</span> | <span id="nameB">Time B</span>: <span id="scoreB">0</span></p>
-        </div>
-        <div class="progress-container">
-            <div>
-                <p id="nameAProgress">Time A</p>
-                <div class="progress-bar"><div id="progressA" class="progress-fill"></div></div>
-            </div>
-            <div>
-                <p id="nameBProgress">Time B</p>
-                <div class="progress-bar"><div id="progressB" class="progress-fill"></div></div>
-            </div>
-        </div>
-        <div class="timer" id="timer">Tempo: 10</div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-<script>
 const questions = [
     { question: "Qual elemento do Modelo ER representa uma entidade?", correct: "Retângulo", options: ["Elipse", "Losango", "Seta"] },
     { question: "O que é uma chave primária?", correct: "Identifica unicamente um registro", options: ["Permite valores duplicados", "Relaciona tabelas", "Serve para ordenação"] },
@@ -230,6 +173,3 @@ document.getElementById("nextBtn").onclick = () => {
         launchConfetti();
     }
 };
-</script>
-</body>
-</html>
